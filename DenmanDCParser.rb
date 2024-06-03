@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class DenmanDCParser < SupplejackCommon::Xml::Base
+
+  
   
   
   base_url "https://praeclusio.nyc3.digitaloceanspaces.com/ParserData/DenmanAndVIRL/DenmanDCCorrAllsept28.xml"
@@ -61,6 +63,34 @@ end
   end
   
 
+  # start of thumbnail enrichment ------------- 
+  #fixes 'sticky' fragment - overwriting enrichment with corrected images 
+  
+  
+enrichment :get_thumbs, priority: -4, required_for_active_record: false do 
+    
+      requires :uri do
+        primary[:source_url].first
+    end
+    
+    url requirements[:uri]
+    format :html
+   
+    
+    attribute :pre_thumbnail_url do
+  compose("https://viurrspace.ca", fetch("//div/img[@class='img-thumbnail']/@src"))
+end
+
+end
+  
+  
+  
+# end of thumbnail enrichment -------------    
+  
+
+
+
+
     attribute :thumbnail_url do 
     fetch('//setSpec').mapping(
       
@@ -93,8 +123,9 @@ end
   
   
 
-  
-  
-  
 
+  
+  
+  
+  
 end
