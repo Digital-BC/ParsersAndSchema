@@ -99,7 +99,8 @@ class KAGparser < SupplejackCommon::Xml::Base
     get(:source_url).find_with("http://kelownaartgallery.pastperfectonline.com/webobject/4B95C369-B660-49B1-8721-698346616856").present? or
     get(:source_url).find_with("http://kelownaartgallery.pastperfectonline.com/webobject/02EA61F7-75D7-4C39-A89F-572452344414").present? or
     get(:source_url).find_with("http://kelownaartgallery.pastperfectonline.com/webobject/4F165CB8-7BBD-46AF-96B9-320327345080").present? or
-    get(:source_url).find_with("http://kelownaartgallery.pastperfectonline.com/webobject/6F456F98-56A7-4D67-9BF5-990346992728").present? 
+    get(:source_url).find_with("http://kelownaartgallery.pastperfectonline.com/webobject/6F456F98-56A7-4D67-9BF5-990346992728").present? or 
+     get(:source_url).find_with("http://kelownaartgallery.pastperfectonline.com/webobject/a629bcce-7f0a-4797-89e3-403107765223").present? 
 
   
 
